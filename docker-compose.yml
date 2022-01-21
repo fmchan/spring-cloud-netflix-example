@@ -25,18 +25,22 @@ config-server:
     - "rabbitmq"
   volumes:
     - ./config-server/config:/app/config
+  ports:
+    - "8100:8100"
 
 service-b:
-  image:  spring-cloud-netflix-example/service-b
+  image: spring-cloud-netflix-example/service-b
   links:
     - "eureka-server"
     - "config-server"
     - "hystrix-dashboard"
     - "rabbitmq"
     - "zipkin"
+  ports:
+    - "8070-8075:8070"
 
 service-a:
-  image:  spring-cloud-netflix-example/service-a
+  image: spring-cloud-netflix-example/service-a
   links:
     - "eureka-server"
     - "config-server"
@@ -44,6 +48,8 @@ service-a:
     - "hystrix-dashboard"
     - "rabbitmq"
     - "zipkin"
+  ports:
+    - "8080-8085:8080"
 
 admin-dashboard:
   image:  spring-cloud-netflix-example/admin-dashboard
