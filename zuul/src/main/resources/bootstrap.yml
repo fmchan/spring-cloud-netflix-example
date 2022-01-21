@@ -38,6 +38,12 @@ zuul:
     a-service:
       path: /**
       serviceId: service-a
+    account:
+      path: /accounts/**
+      serviceId: account-service
+    customer:
+      path: /customers/**
+      serviceId: customer-service
 management:
   endpoints:
     web:
@@ -80,6 +86,12 @@ zuul:
     a-service:
       path: /**
       serviceId: service-a
+    account:
+      path: /accounts/**
+      serviceId: account-service
+    customer:
+      path: /customers/**
+      serviceId: customer-service
 
 management:
   endpoints:
